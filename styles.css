@@ -1,0 +1,37 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+}
+
+h1{
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+input{
+    border-radius: 10px;
+    padding: 12px;
+    border: none;
+    margin: 0 0 20px 0;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    border: 3px solid orange;
+    background-color:antiquewhite
+}
+
+input:hover{
+    background-color: orange;
+    transition: ease-in 0.3s;
+}
+
+.img-container{
+    padding: 4px;
+}
+
+img{
+    width: 320px;
+}
+
