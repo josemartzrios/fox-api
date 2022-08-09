@@ -1,5 +1,32 @@
 const API = 'https://randomfox.ca/floof/';
 
+
+// LAZY LOADING
+// optimizacion de las imagenes
+const isIntersecting = (entry) => {
+    return entry.isIntersecting
+}
+
+const accion = (entry) => {
+    const nodo = entry.target;
+    console.log('Holis');
+
+    observer.unobserve(nodo);
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries
+        .filter(isIntersecting)
+        .forEach(accion)
+});
+
+const registerImage = (imagen) => {
+    observer.observe(imagen);
+}
+
+
+
+
 async function getNewFox(){
     try{
         const response = await fetch(API);
@@ -17,6 +44,8 @@ async function getNewFox(){
         imgContainer.appendChild(div);
         div.appendChild(img);
 
+        registerImage(img);
+
     } catch(error){
         console.error(error);
     }
@@ -25,3 +54,6 @@ async function getNewFox(){
 
 const button = document.querySelector('#getFoxButton');
 button.addEventListener('click', getNewFox);
+
+
+
