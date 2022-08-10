@@ -9,7 +9,6 @@ const isIntersecting = (entry) => {
 
 const accion = (entry) => {
     const nodo = entry.target;
-    console.log('Holis');
 
     observer.unobserve(nodo);
 }
@@ -38,7 +37,9 @@ async function getNewFox(){
         div.className = 'img-container';
 
         const img = document.createElement('img');
-        img.setAttribute('src', `${data.image}`)
+        img.loading = 'lazy';
+        img.src = data.image;
+        // img.setAttribute('src', `${data.image}`)
 
 
         imgContainer.appendChild(div);
@@ -51,9 +52,17 @@ async function getNewFox(){
     }
 }
 
+function clearFoxis(){
+    const imgContainer = document.querySelector('#images');
+    imgContainer.innerHTML = ' ';
+}
 
-const button = document.querySelector('#getFoxButton');
-button.addEventListener('click', getNewFox);
+
+const buttonClearFox = document.querySelector('#clearFoxis');
+buttonClearFox.addEventListener('click', clearFoxis);
+
+const buttonGetFox = document.querySelector('#getFoxButton');
+buttonGetFox.addEventListener('click', getNewFox);
 
 
 
